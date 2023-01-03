@@ -53,7 +53,7 @@ namespace EmployeePayrollSystem
             }
             finally
             {
-                this.connection.Close();
+                //this.connection.Close();
             }
         }
         public void AddMultiplesEmployeesWithoutUsingThread(List<EmployeeDetails> model)
@@ -63,6 +63,19 @@ namespace EmployeePayrollSystem
                 Console.WriteLine("Employee being Added :"+ data.Name);
                 this.AddEmployee(data);
                 Console.WriteLine("Employee Added :" + data.Name);
+            });
+        }
+        public void AddMultiplesEmployeesUsingThread(List<EmployeeDetails> model)
+        {
+            model.ForEach(data =>
+            {
+                Task thread = new Task(() =>
+                {
+                    Console.WriteLine("Employee being Added :" + data.Name);
+                    this.AddEmployee(data);
+                    Console.WriteLine("Employee Added :" + data.Name);
+                });
+                thread.Start(); //Starts the Task,scheduling it for the execution to the current TaskScheduler.
             });
         }
     }

@@ -22,6 +22,10 @@ namespace EmployeePayrollTest
             DateTime stopTime= DateTime.Now;
             Console.WriteLine("Elapsed Time WITHOUT Thread :"+(stopTime-startTime));        //Without Thread    UC1
 
+            DateTime startTimeUsingThread = DateTime.Now;
+            employeePayrollOperations.AddMultiplesEmployeesUsingThread(employeeDetails);
+            DateTime stopTimeUsingThread = DateTime.Now;
+            Console.WriteLine("Elapsed Time WITH Thread :"+(stopTimeUsingThread - startTimeUsingThread)); //With Thread   UC2
         }
     }
 }
