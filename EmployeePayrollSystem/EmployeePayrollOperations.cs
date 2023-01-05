@@ -15,10 +15,10 @@ namespace EmployeePayrollSystem
         List<EmployeeDetails> model = new List<EmployeeDetails>();
         public bool AddEmployee(EmployeeDetails model)     //Adding Employee into Table.
         {
-            connection = new SqlConnection(connectionString);
+            
             try
             {
-                using (this.connection)
+                using (connection = new SqlConnection(connectionString)) 
                 {
                     this.connection.Open();
                     SqlCommand command = new SqlCommand("spAddEmployeeDetails", this.connection);

@@ -21,7 +21,7 @@ namespace EmployeePayrollSystem
         public double Taxable_Pay { get; set; }
         public double Income_Tax { get; set; }
         public double Net_Pay { get; set; }
-        public EmployeeDetails(int Id, string Name, double Salary, DateTime StartDate, string Gender, long empPhone, string Address,
+        public EmployeeDetails(string Name, double Salary, DateTime StartDate, string Gender, long empPhone, string Address,
                                 string Department, double Deductions, double Taxable_Pay, double Income_Tax, double Net_Pay)
         {
             this.Id = Id;
